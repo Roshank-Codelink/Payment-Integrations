@@ -1,4 +1,4 @@
-import mongoose, {Schema, Document } from "mongoose";
+import mongoose from "mongoose";
 import { User } from "../../../types/user";
 
 
@@ -20,5 +20,6 @@ const UserSchema = new mongoose.Schema({
     timestamps: true,
 })
 
-const UserModel = mongoose.model<User>("User", UserSchema);
-export default UserModel;
+// Check if model already exists to prevent recompilation error
+const UserModel = mongoose.models.User || mongoose.model<User>("User", UserSchema);
+export default UserModel;   

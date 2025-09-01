@@ -17,6 +17,7 @@ export interface Signin_User{
     message: string;
     email: string;
     password: string;
+    User: User|null;
 }
 
 
